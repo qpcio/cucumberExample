@@ -70,7 +70,9 @@ public class StepsDef {
     }
 }
 ```
-Zwracam Waszą uwagę na to, że ponieważ w scenariuszu użyłem w zdaniach liczb (w When i Then) to cucumber sam uznał, że w sumie, to może będę chciał używać tam różnych tych liczb i zrobi mi z nich automagicznie parametry (nazywa je sam z siebie mało smartnie "int1", "int2" - ja je już tak zostawiłem, ale nic nie stoi na przeszkodzie, żeby ich nazwy pozmieniać). 
+Zwracam Waszą uwagę na:
+1. To, że metoda z naszej testowej klasy nie była statyczna, żebyśmy mogli sobie poczynić jakiś setup w metodzie opisującej zdanie z Given
+2. To, że ponieważ w scenariuszu użyłem w zdaniach liczb (w When i Then) to cucumber sam uznał, że w sumie, to może będę chciał używać tam różnych tych liczb i zrobi mi z nich automagicznie parametry (nazywa je sam z siebie mało smartnie "int1", "int2" - ja je już tak zostawiłem, ale nic nie stoi na przeszkodzie, żeby ich nazwy pozmieniać). 
 Teraz jedyne co pozostaje zrobić to uruchomić CucumberRunnera ponownie.... i podziwiać. Testy przechodzą a Wy możecie się cieszyć. Tylko ten log z wykoanania testów taki mało urodziwy, co? No to w klasie CucumberRunner wypełnijmy puste dotychczas CucumberOptions:
 ```java
 @CucumberOptions(plugin = {"pretty"})

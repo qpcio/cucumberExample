@@ -10,7 +10,7 @@ public class StepsDef {
     Calc calc;
     int result;
 
-    @Given("I test calculator")
+    @Given("Calculator is started")
     public void i_test_calculator() {
         calc = new Calc();
     }

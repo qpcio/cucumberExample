@@ -46,12 +46,12 @@ Scenario: Summing with zero
 ```
 Małe wtrącenie: scenariusze powinny być konkretne tak by dawały przykłady realnych użyć oraz wysokopoziomowe. Sam Cucumber pozwala na nieskończoną w zasadzie liczbę kroków każdego typu. Możemy je powtarzać używając wielokrotnie słów kluczowych Given/When/Then, albo spójników (And / But), oba te podejścia zadziałają tak samo.
 
-Teraz potrzebujemy stworzyć sobie tzw. Runner testów. W test/java/ stworzę bardzo prosty plik CucumberRunner.java (bez importów):
+Teraz potrzebujemy stworzyć sobie tzw. Runner testów. W test/java/ stworzę bardzo prosty plik com.calc.CucumberRunnerTest.java (bez importów):
 
 ```java
 @RunWith(Cucumber.class)
 @CucumberOptions()
-public class CucumberRunner {
+public class com.calc.CucumberRunnerTest {
 }
 ```
 
@@ -84,7 +84,7 @@ Zwracam Waszą uwagę na poniższe kwestie.
 Metoda z naszej testowej klasy nie była statyczna, żebyśmy mogli sobie poczynić jakiś setup w metodzie opisującej zdanie z Given.
 Ponieważ w scenariuszu użyłem w zdaniach liczb (w When i Then) to Cucumber sam uznał, że w sumie, to może będę chciał używać tam różnych tych liczb i zrobi mi z nich automagicznie parametry. Sam je sobie nazwał (mało sprytnie) "int1", "int2". Zostawiłem je w takiej formie, ale nic nie stoi na przeszkodzie, żeby ich nazwy pozmieniać.
 
-Jedyne co teraz pozostaje, to uruchomić CucumberRunnera ponownie.... i podziwiać. Testy przechodzą, a Wy możecie się cieszyć. Tylko ten log z wykonania testów taki mało urodziwy, co? No to w klasie CucumberRunner wypełnijmy puste dotychczas CucumberOptions:
+Jedyne co teraz pozostaje, to uruchomić CucumberRunnera ponownie.... i podziwiać. Testy przechodzą, a Wy możecie się cieszyć. Tylko ten log z wykonania testów taki mało urodziwy, co? No to w klasie com.calc.CucumberRunnerTest wypełnijmy puste dotychczas CucumberOptions:
 
 ```java
 @CucumberOptions(plugin = {"pretty"})
